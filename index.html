@@ -3,9 +3,71 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/normalise.css" />
     <title>Texty</title>
   </head>
   <body>
-    <h1>Texty</h1>
+    <header class="header">
+      <h1 class="logo__text">TEXTY</h1>
+      <a href="#" class="button__create--note">Create a note </a>
+    </header>
+    <main>
+      <div class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Create a note</h2>
+          <form action="" class="form">
+            <input
+              type="text"
+              name="note_caption"
+              id="note_caption"
+              placeholder="Note's title"
+            />
+            <textarea
+              required
+              name="note_text"
+              id="note_text"
+              placeholder="Note's text"
+            ></textarea>
+            <button>Create</button>
+          </form>
+        </div>
+      </div>
+      <section class="my-notes">
+        <h1 class="heading__text">Your notes</h1>
+        <div class="notes-wrapper">
+          <article class="notes__card">
+            <h2>Note</h2>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Consectetur consequuntur qui cumque laboriosam repudiandae facere
+              dolorem reiciendis quasi similique reprehenderit non, distinctio,
+              vero sapiente ducimus quam repellendus magnam voluptatum
+            </p>
+          </article>
+          <article class="notes__card">
+            <h2>Note</h2>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Consectetur consequuntur qui cumque laboriosam repudiandae facere
+              dolorem reiciendis quasi similique reprehenderit non, distinctio,
+              vero sapiente ducimus quam repellendus magnam voluptatum nulla.
+            </p>
+          </article>
+          <article class="notes__card">
+            <h2>Note</h2>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Consectetur consequuntur qui cumque laboriosam repudiandae facere
+              dolorem reiciendis quasi similique reprehenderit non, distinctio,
+              vero sapiente ducimus quam repellendus magnam voluptatum nulla.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
   </body>
+  <script type="module" src="/js/main.js" defer></script>
 </html>
