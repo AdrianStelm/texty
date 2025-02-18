@@ -3,9 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/normalise.css" />
     <title>Texty</title>
   </head>
   <body>
-    <h1>Texty</h1>
+    <header class="header">
+      <h1 class="logo__text">T</h1>
+      <a href="#" class="button__create--note">Create a note </a>
+    </header>
+    <main>
+      <div class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Create a note</h2>
+          <form action="" class="form">
+            <input
+              type="text"
+              name="note_caption"
+              id="note_caption"
+              placeholder="Note's title"
+            />
+            <textarea
+              required
+              name="note_text"
+              id="note_text"
+              placeholder="Note's text"
+            ></textarea>
+            <button type="submit">Create</button>
+          </form>
+        </div>
+      </div>
+      <section class="my-notes">
+        <a class="button__clear--notes">Clear notes</a>
+        <h1 class="heading__text">Your notes</h1>
+        <div class="notes-wrapper"></div>
+      </section>
+    </main>
+    <footer></footer>
   </body>
+  <script src="/js/main.js" defer></script>
 </html>
