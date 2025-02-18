@@ -75,7 +75,8 @@ main{
     border: 1px solid black;
     padding: 5px 5px;
     border-radius: 15px;
-        transition: all 1s;
+    transition: all 1s;
+    margin-top: 50px;
 }
 
 .notes__card h2 {
@@ -155,6 +156,32 @@ main{
     display: block;
 }
 
-.non-active {
-    display: none;
+.button__delete--note{
+    background-color: rgb(197, 68, 68);
+    color: white;
+    padding: 10px 30px;
+    border-radius: 10px;
+    outline: none;
+}
+
+.button__clear--notes{
+    background-color: rgb(58, 70, 182);
+    color: white;
+    padding: 10px 15px;
+    float: right;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.button__clear--notes::after {
+    content: "";
+    display: inline-block;
+    width: 25px;
+    aspect-ratio: 1;
+    background: url(/icons/trash.png) no-repeat center;
+    margin-left: 10px;
+}
+
+.button__clear--notes:hover {
+    background-color: rgb(127, 135, 202);
 }
