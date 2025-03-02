@@ -9,12 +9,12 @@
   </head>
   <body>
     <header class="header">
-      <h1 class="logo__text">T</h1>
+      <h1 class="logo__text">Notes</h1>
       <a href="#" class="button__create--note">Create a note </a>
     </header>
     <main>
       <div class="modal">
-        <div class="modal-content">
+        <div class="modal-content--create-note">
           <span class="close">&times;</span>
           <h2>Create a note</h2>
           <form action="" class="form">
@@ -25,12 +25,33 @@
               placeholder="Note's title"
             />
             <textarea
-              required
               name="note_text"
               id="note_text"
               placeholder="Note's text"
             ></textarea>
             <button type="submit">Create</button>
+          </form>
+        </div>
+      </div>
+      <div class="modal-edit-note">
+        <div class="modal-content--edit-note">
+          <span class="close">&times;</span>
+          <h2>Edit the note</h2>
+          <form action="" class="form-edit-note">
+            <input
+              class="input--edit-note_title"
+              type="text"
+              name="new_note_caption"
+              id="note_caption"
+              placeholder="Note's title"
+            />
+            <textarea
+              class="input--edit-note_text"
+              name="new_note_text"
+              id="note_text"
+              placeholder="Note's text"
+            ></textarea>
+            <button type="submit">Edit</button>
           </form>
         </div>
       </div>
