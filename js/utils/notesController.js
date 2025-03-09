@@ -9,13 +9,16 @@ const closeButtons = document.querySelectorAll('.close');
 
 let currentEditingTitle = '';
 
-form.addEventListener('submit', () => {
+form.addEventListener('submit', (e) => {
+    e.preventDefault()
     const noteData = new FormData(form);
 
     const title = noteData.get('note_caption');
     const text = noteData.get('note_text');
 
     localStorage.setItem(title, text);
+    modalWindow.classList.remove('active'); 
+        renderNotes(); 
 })
 
 formEditNote.addEventListener('submit', (e) => {

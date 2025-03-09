@@ -15,11 +15,41 @@
     border-color: rgba(255, 255, 255, 0.274);
 }
 
-body[theme='dark'],
-.notes__card[theme='dark'] {
+body[theme='dark'],#select-theme[theme='dark'],
+.notes__card[theme='dark'],.button__create--note[theme='dark'] {
     background-color: #1b1b1b;
 }
 
 .close[theme='dark'] {
+    color: white;
+}
+
+
+
+
+*[theme="red"] {
+    background-color: #a33838;
+    color: white;
+}
+
+.modal-content--create-note input[theme="yellow"],
+.modal-content--create-note textarea[theme="yellow"],
+.modal-content--edit-note input[theme="yellow"],
+.modal-content--edit-note textarea[theme="yellow"] {
+    background-color: #eb6565;
+    border-bottom: 2px solid white;
+}
+
+.notes__card[theme='yellow'] {
+    border-color: rgba(255, 255, 255, 0.274);
+}
+
+body[theme='red'],
+#select-theme[theme='red'],
+.notes__card[theme='red'], .button__create--note[theme='red'] {
+    background-color: #eb6565;
+}
+
+.close[theme='red'] {
     color: white;
 }

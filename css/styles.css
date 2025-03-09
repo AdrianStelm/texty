@@ -25,6 +25,9 @@ a{
     left: 0;
     width: 100%;
     z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .logo__text{
@@ -56,7 +59,7 @@ a{
 
 main{
     margin:0 100px;
-    padding-top: 30vh;
+    padding-top: 40vh;
 }
 
 .my-notes{
@@ -158,7 +161,10 @@ main{
     font-size: 50px;
     cursor: pointer;
     transition: all 1s;
+    margin-right: 20px;
+    margin-bottom: 5px;
 }
+
 .close:hover {
     transform: rotate(360deg);
 
@@ -212,6 +218,14 @@ main{
     transform: rotateX(40deg)
 }
 
+#select-theme{
+    width: clamp(200px, 25vw, 400px);
+    height: 5vh;
+    border-radius: 10px;
+    align-self: start;
+}
+
+
 
 
 
@@ -230,5 +244,9 @@ main{
 
     .notes-wrapper {
         justify-content: center;
+    }
+
+    #select-theme {
+        align-self: center;
     }
 }
