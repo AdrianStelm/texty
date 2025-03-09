@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="stylesheet" href="/css/normalise.css" />
+    <link rel="stylesheet" href="/css/themes.css" />
     <title>Texty</title>
   </head>
   <body>
@@ -55,7 +56,14 @@
           </form>
         </div>
       </div>
+
       <section class="my-notes">
+        <select id="select-theme">
+          <option value="">--Choose theme color--</option>
+          <option value="white">White</option>
+          <option value="dark">Dark</option>
+        </select>
+
         <a class="button__clear--notes">Clear notes</a>
         <h1 class="heading__text">Your notes</h1>
         <div class="notes-wrapper"></div>
@@ -63,5 +71,6 @@
     </main>
     <footer></footer>
   </body>
-  <script src="/js/main.js" defer></script>
+  <script src="/js/utils/notesController.js" defer></script>
+  <script type="module" src="/js/utils/themeChanger.js" defer></script>
 </html>

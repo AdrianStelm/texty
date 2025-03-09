@@ -209,37 +209,12 @@ main{
 }
 
 .button__edit--note:hover {
-transform: rotateX(40deg)
+    transform: rotateX(40deg)
 }
 
 
 
 
-
-
-
-
-
-
-
-@media (prefers-color-scheme: dark) {
-    body, .header, .modal-content--create-note, .modal-content--edit-note{
-        background-color: #000000e7;
-    }
-
-        .modal-content--create-note input,
-        .modal-content--create-note textarea,       
-        .modal-content--edit-note input,
-        .modal-content--edit-note textarea{
-            background-color: #000000e7;
-            border-bottom: 2px solid white;
-        }
-
-    *,.close{
-        color: white;
-    }
-
-}
 
 
 
