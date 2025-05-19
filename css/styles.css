@@ -10,34 +10,40 @@
     --font-size-secondary-header: 40px;
 }
 
+input[type=search]::-ms-clear {
+    display: none;
+}
+
+input[type=search]::-webkit-search-cancel-button {
+    display: none;
+    -webkit-appearance: none;
+}
+
 a{
     text-decoration: none;
     color: unset;
 }
 
 .header{
-    padding: 50px 0;
+    padding-top: 50px;
     text-align: center;
-    background-color:white;
-    border-bottom: 5px solid black;
+    background-color:#ddd6d62b;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 999;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: space-around;
 }
 
 .logo__text{
     font-size: var(--font-size-header);
-    margin-bottom: 20px;
 }
 
 .button__create--note{
     background-color: var(--light-yellow);
-    padding: 5vh 10vw;
+    padding: 3vh 3vw;
     border-radius:20px ;
     font-size: 30px;
     text-wrap: nowrap;
@@ -59,7 +65,7 @@ a{
 
 main{
     margin:0 100px;
-    padding-top: 40vh;
+    padding-top: 5vh;
 }
 
 .my-notes{
@@ -68,32 +74,29 @@ main{
 
 .heading__text{
     font-size: var(--font-size-secondary-header);
-    text-align: left;
 }
 
 .notes-wrapper{
     display: flex;
     flex-wrap: wrap;
-    justify-content:space-between;
-    gap: 20px;
+    flex-direction: column;
+    width: 30vw;
 }
 
 .notes__card{
     width:clamp(150px,40vw,800px);
     height: fit-content;
-    border: 1px solid black;
+    width: 100%;
     padding: 5px 5px;
     border-radius: 15px;
     transition: all 1s;
-    margin-top: 50px;
+    margin-top: 20px;
+    background-color: #ddd6d62b;
 }
 
-.notes__card h2 {
-    border-bottom: 1px solid black;
-}
 
 .notes__card:hover {
-    transform: scale(1.1);
+    transform: rotateX(25deg)
 }
 
 .modal,.modal-edit-note {
@@ -111,9 +114,11 @@ main{
     /* Full height */
     overflow: auto;
     /* Enable scroll if needed */
-    background-color: rgba(0, 0, 0, 0.9);
     /* Black w/ opacity */
     z-index: 1000;
+    background: rgba(255, 255, 255, 0.2);
+        /* прозорий білий фон */
+    backdrop-filter: blur(10px);
 }
 
 .modal-content--create-note,.modal-content--edit-note {
@@ -186,7 +191,6 @@ main{
     background-color: rgb(58, 70, 182);
     color: white;
     padding: 10px 15px;
-    float: right;
     cursor: pointer;
     border-radius: 10px;
     text-wrap: nowrap;
@@ -218,6 +222,18 @@ main{
     transform: rotateX(40deg)
 }
 
+.notes-control{
+    margin-right: 15vw;
+    position: fixed;
+    right: 0;
+    margin-top: 20vh;
+}
+
+.notes-control .heading__text{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 #select-theme{
     width: clamp(200px, 25vw, 400px);
     height: 5vh;
@@ -225,7 +241,33 @@ main{
     align-self: start;
 }
 
+#search-note{
+    padding: 10px 25px;
+    width: 33vw;
+    font-size: 18px;
+    outline: none;
+    border-radius: 15px;
+}
 
+.search{
+    position: relative;
+    width: fit-content;
+}
+
+.icon-search{
+    position: absolute;
+    top: 10px;
+    right: 8px;
+    display: inline-block;
+    width: 25px;
+    aspect-ratio: 1;
+    background: url(../icons/icons8-search.svg) center/cover no-repeat;
+}
+
+.notes-layout{
+    display: flex;
+    justify-content: space-between;
+}
 
 
 
@@ -248,5 +290,6 @@ main{
 
     #select-theme {
         align-self: center;
+        margin-left: 0px;
     }
 }

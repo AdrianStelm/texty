@@ -17,7 +17,10 @@
         <option value="red">Red</option>
       </select>
       <h1 class="logo__text">Notes</h1>
-      <a href="#" class="button__create--note">Create a note </a>
+      <div class="search">
+        <input type="search" name="search-note" placeholder="Пошук нотатки..."
+        id="search-note" / ><span class="icon-search"></span>
+      </div>
     </header>
     <main>
       <div class="modal">
@@ -62,11 +65,16 @@
           </form>
         </div>
       </div>
-
       <section class="my-notes">
-        <a class="button__clear--notes">Clear notes</a>
         <h1 class="heading__text">Your notes</h1>
-        <div class="notes-wrapper"></div>
+        <div class="notes-layout">
+          <div class="notes-wrapper"></div>
+          <div class="notes-control">
+            <h1 class="heading__text">Create note</h1>
+            <a href="#" class="button__create--note">Create a note </a>
+            <a class="button__clear--notes">Clear notes</a>
+          </div>
+        </div>
       </section>
     </main>
     <footer></footer>

@@ -9,8 +9,7 @@ const closeButtons = document.querySelectorAll('.close');
 
 let currentEditingTitle = '';
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault()
+form.addEventListener('submit', () => {
     const noteData = new FormData(form);
 
     const title = noteData.get('note_caption');

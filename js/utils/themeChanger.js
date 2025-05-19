@@ -17,6 +17,7 @@ const elementsToChange = [header, modal, modalEdit, document.body, ...noteCards,
 
 
 function switchToDarkTheme() {
+    sessionStorage.setItem('theme','dark')
     for (let elem of elementsToChange) {
         elem.setAttribute('theme','dark')
     }    
@@ -31,6 +32,7 @@ function switchToDarkTheme() {
 }
 
 function switchToWhiteTheme() {
+    sessionStorage.setItem('theme','white')
     for (let elem of elementsToChange) {
         elem.removeAttribute('theme')
     }    
@@ -45,6 +47,7 @@ function switchToWhiteTheme() {
 }
 
 function switchToRedTheme() {
+    sessionStorage.setItem('theme','red')
     for (let elem of elementsToChange) {
         elem.setAttribute('theme','red')
     }    
@@ -59,8 +62,8 @@ function switchToRedTheme() {
 }
 
 
-if (prefersDark) {   
-    switchToDarkTheme()
+if (!sessionStorage.getItem('theme') && prefersDark) {   
+    sessionStorage.setItem('theme','dark')
 }
 
 selectElement.addEventListener('change', () => {
@@ -74,3 +77,14 @@ selectElement.addEventListener('change', () => {
         switchToRedTheme()
     }
 })
+
+if (sessionStorage.getItem('theme') == 'dark') {
+    switchToDarkTheme()
+    console.log('dark')
+} else if (sessionStorage.getItem('theme') == 'white') {
+    switchToWhiteTheme()
+    console.log('white')
+} else if (sessionStorage.getItem('theme') == 'red') {
+    switchToRedTheme()
+    console.log('red')
+}
