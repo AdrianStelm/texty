@@ -10,12 +10,6 @@
   </head>
   <body>
     <header class="header">
-      <select id="select-theme">
-        <option value="">--Choose theme color--</option>
-        <option value="white">White</option>
-        <option value="dark">Dark</option>
-        <option value="red">Red</option>
-      </select>
       <h1 class="logo__text">Notes</h1>
       <div class="search">
         <input type="search" name="search-note" placeholder="Пошук нотатки..."
@@ -23,6 +17,18 @@
       </div>
     </header>
     <main>
+      <aside class="aside-menu">
+        <a href="#" class="button__create--note">Create a note </a>
+        <a class="button__clear--notes">Clear notes</a>
+        <div>
+          <select id="select-theme">
+            <option value="">Change theme</option>
+            <option value="white">White</option>
+            <option value="dark">Dark</option>
+            <option value="red">Red</option>
+          </select>
+        </div>
+      </aside>
       <div class="modal">
         <div class="modal-content--create-note">
           <span class="close">&times;</span>
@@ -69,11 +75,6 @@
         <h1 class="heading__text">Your notes</h1>
         <div class="notes-layout">
           <div class="notes-wrapper"></div>
-          <div class="notes-control">
-            <h1 class="heading__text">Create note</h1>
-            <a href="#" class="button__create--note">Create a note </a>
-            <a class="button__clear--notes">Clear notes</a>
-          </div>
         </div>
       </section>
     </main>
