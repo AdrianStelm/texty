@@ -13,7 +13,8 @@
       <h1 class="logo__text">Notes</h1>
       <div class="search">
         <input type="search" name="search-note" placeholder="Пошук нотатки..."
-        id="search-note" / ><span class="icon-search"></span>
+        id="search-note" / ><span class="icon-search" type="submit"></span>
+        <ul class="search-results"></ul>
       </div>
     </header>
     <main>
@@ -75,6 +76,10 @@
         <h1 class="heading__text">Your notes</h1>
         <div class="notes-layout">
           <div class="notes-wrapper"></div>
+          <div class="note__view">
+            <h1 class="note__title">Click on note to read it</h1>
+            <p class="note__text">A note wasn't clicked</p>
+          </div>
         </div>
       </section>
     </main>

@@ -7,6 +7,9 @@ const form = document.querySelector(".form");
 const formEditNote = document.querySelector(".form-edit-note");
 const closeButtons = document.querySelectorAll(".close");
 
+const noteViewTitle = document.querySelector(".note__title");
+const noteBody = document.querySelector(".note__text");
+
 let currentEditingTitle = "";
 
 form.addEventListener("submit", () => {
@@ -71,8 +74,7 @@ function renderNotes() {
     const noteText = document.createElement("p");
     noteText.innerText = text.length > 75 ? text.slice(0, 78) + "..." : text;
 
-    const deleteButton = document.createElement("button");
-    deleteButton.innerText = "Delete";
+    const deleteButton = document.createElement("span");
     deleteButton.className = "button__delete--note";
 
     const editButton = document.createElement("span");
@@ -89,6 +91,17 @@ function renderNotes() {
       currentEditingTitle = title;
     });
 
+    noteCard.addEventListener("click", () => {
+      document.querySelectorAll(".notes__card").forEach((card) => {
+        card.classList.remove("selected");
+      });
+
+      noteCard.classList.add("selected");
+
+      noteViewTitle.textContent = title;
+      noteBody.textContent = text;
+    });
+
     deleteButton.addEventListener("click", () => {
       deleteNote(title);
     });
@@ -98,6 +111,48 @@ function renderNotes() {
     noteCard.appendChild(deleteButton);
     noteCard.appendChild(editButton);
     notesWrapper.appendChild(noteCard);
+
+    const searchInput = document.getElementById("search-note");
+    const resultsList = document.querySelector(".search-results");
+
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.toLowerCase();
+      resultsList.innerHTML = "";
+
+      if (query.length === 0) {
+        resultsList.style.display = "none";
+        return;
+      }
+
+      const filtered = Object.keys(localStorage).filter((note) =>
+        note.toLowerCase().includes(query)
+      );
+
+      if (filtered.length > 0) {
+        filtered.forEach((note) => {
+          const li = document.createElement("li");
+          li.textContent = note;
+          li.addEventListener("click", () => {
+            searchInput.value = note;
+            resultsList.style.display = "none";
+            noteViewTitle.textContent = note;
+            const noteContent = localStorage.getItem(note);
+            noteBody.textContent = noteContent;
+            // Можна додати дії після вибору
+          });
+          resultsList.appendChild(li);
+        });
+        resultsList.style.display = "block";
+      } else {
+        resultsList.style.display = "none";
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".search")) {
+        resultsList.style.display = "none";
+      }
+    });
   });
 }
 
