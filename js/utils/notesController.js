@@ -27,7 +27,7 @@ formEditNote.addEventListener("submit", (e) => {
   e.preventDefault();
   const noteData = new FormData(formEditNote);
 
-  const newTitle = noteData.get("new_note_caption");
+  const newTitle = noteData.get("new_note_caption") || "New Title";
   const newText = noteData.get("new_note_text");
 
   if (currentEditingTitle) {
@@ -138,7 +138,6 @@ function renderNotes() {
             noteViewTitle.textContent = note;
             const noteContent = localStorage.getItem(note);
             noteBody.textContent = noteContent;
-            // Можна додати дії після вибору
           });
           resultsList.appendChild(li);
         });
