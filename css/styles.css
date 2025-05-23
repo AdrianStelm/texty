@@ -272,7 +272,7 @@ main{
     top: 0;
     left: 0;
     height: 100%;
-    margin-top: 10vh;
+    margin-top: 13vh;
     display: flex;
     flex-direction: column;
     transition: all 1.5s ease;
@@ -316,22 +316,32 @@ main{
 }
 
 
-
+@media screen and (max-width:1024px) {
+    .aside-menu{
+        flex-direction: row;
+        width: fit-content;
+        height: fit-content;
+        flex-wrap: wrap;
+    }
+        .aside-menu > * {
+            padding: 1vw;
+        }
+    main{
+        padding-top: 10vh;
+    }
+    .notes-layout{
+        margin-left: -15vw;
+    }
+}
 
 
 
 
 @media screen and (max-width:768px) {
-    .button__clear--notes {
-        float: initial;
-    }
+
 
     .notes-wrapper {
         justify-content: center;
     }
 
-    #select-theme {
-        align-self: center;
-        margin-left: 0px;
-    }
 }
