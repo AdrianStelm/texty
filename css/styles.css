@@ -100,7 +100,7 @@ main{
     transform: rotateX(25deg)
 }
 
-.modal,.modal-edit-note {
+.modal {
     display: none;
     /* Hidden by default */
     position: fixed;
@@ -121,7 +121,7 @@ main{
     backdrop-filter: blur(10px);
 }
 
-.modal-content--create-note,.modal-content--edit-note {
+.modal-content--create-note {
     background-color: #ffffff;
     margin: 20vh auto;
     padding: 20px 20px;
@@ -131,7 +131,7 @@ main{
     border-radius: 20px;
 }
 
-.modal-content--create-note input,.modal-content--create-note textarea, .modal-content--edit-note input, .modal-content--edit-note textarea{
+.modal-content--create-note input,.modal-content--create-note textarea{
     display: block;
     resize: vertical;
     max-width: 100%;
@@ -144,7 +144,7 @@ main{
     height: fit-content;
 }
 
-.modal-content--create-note button, .modal-content--edit-note button{
+.modal-content--create-note button{
  max-width: 200px;
  width: 100%;
  height: 50px;
@@ -208,25 +208,10 @@ main{
     margin-right: 15px;
 }
 
-.button__edit--note{
-    float: right;
-    width: 40px; 
-    aspect-ratio: 1;
-    background: url(/icons/icons8-edit-64.png) center/cover no-repeat;
-    cursor: pointer;
-    
-}
-
-.button__edit--note:hover {
-    transform: rotateX(40deg)
-}
-
-
 #select-theme{
     outline: none;
     border: none;
 }
-
 
 #search-note{
     padding: 10px 25px;
@@ -324,9 +309,10 @@ main{
 
 .aside-menu_button_close{
     display: inline-block;
-    width: 25px;
+    width: 30px;
     aspect-ratio: 1;
-    background-color: #000000;
+    background: url(../icons/icons8-menu.svg) center/cover no-repeat;
+    cursor: pointer;
 }
 
 

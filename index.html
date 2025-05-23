@@ -10,7 +10,11 @@
   </head>
   <body>
     <header class="header">
-      <span class="aside-menu_button_close"></span>
+      <span
+        class="aside-menu_button_close"
+        aria-label="Click to hide/show side menu"
+        title="Click to hide/show side menu"
+      ></span>
       <h1 class="logo__text">Notes</h1>
       <div class="search">
         <input type="search" name="search-note" placeholder="Пошук нотатки..."
@@ -51,35 +55,15 @@
           </form>
         </div>
       </div>
-      <div class="modal-edit-note">
-        <div class="modal-content--edit-note">
-          <span class="close">&times;</span>
-          <h2>Edit the note</h2>
-          <form action="" class="form-edit-note">
-            <input
-              class="input--edit-note_title"
-              type="text"
-              name="new_note_caption"
-              id="note_caption"
-              placeholder="Note's title"
-            />
-            <textarea
-              class="input--edit-note_text"
-              name="new_note_text"
-              id="note_text"
-              placeholder="Note's text"
-            ></textarea>
-            <button type="submit">Edit</button>
-          </form>
-        </div>
-      </div>
       <section class="my-notes">
         <h1 class="heading__text">Your notes</h1>
         <div class="notes-layout">
           <div class="notes-wrapper"></div>
           <div class="note__view">
-            <h1 class="note__title">Click on note to read it</h1>
-            <p class="note__text"></p>
+            <h1 class="note__title" contenteditable="true">
+              Click on note to read it
+            </h1>
+            <p class="note__text" contenteditable="true"></p>
           </div>
         </div>
       </section>

@@ -1,16 +1,12 @@
 const createNoteButton = document.querySelector(".button__create--note");
 const clearNotesButton = document.querySelector(".button__clear--notes");
 const modalWindow = document.querySelector(".modal");
-const modalWindowForEditNote = document.querySelector(".modal-edit-note");
 const closeButton = document.querySelector(".close");
 const form = document.querySelector(".form");
-const formEditNote = document.querySelector(".form-edit-note");
 const closeButtons = document.querySelectorAll(".close");
 
 const noteViewTitle = document.querySelector(".note__title");
 const noteBody = document.querySelector(".note__text");
-
-let currentEditingTitle = "";
 
 form.addEventListener("submit", () => {
   const noteData = new FormData(form);
@@ -20,22 +16,6 @@ form.addEventListener("submit", () => {
 
   localStorage.setItem(title, text);
   modalWindow.classList.remove("active");
-  renderNotes();
-});
-
-formEditNote.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const noteData = new FormData(formEditNote);
-
-  const newTitle = noteData.get("new_note_caption") || "New Title";
-  const newText = noteData.get("new_note_text");
-
-  if (currentEditingTitle) {
-    localStorage.removeItem(currentEditingTitle);
-  }
-
-  localStorage.setItem(newTitle, newText);
-  modalWindowForEditNote.classList.remove("active");
   renderNotes();
 });
 
@@ -53,7 +33,7 @@ clearNotesButton.addEventListener("click", () => {
 
 closeButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
-    const modal = btn.closest(".modal, .modal-edit-note");
+    const modal = btn.closest(".modal");
     if (modal) {
       modal.classList.remove("active");
     }
@@ -77,20 +57,6 @@ function renderNotes() {
     const deleteButton = document.createElement("span");
     deleteButton.className = "button__delete--note";
 
-    const editButton = document.createElement("span");
-    editButton.className = "button__edit--note";
-
-    editButton.addEventListener("click", () => {
-      modalWindowForEditNote.classList.toggle("active");
-
-      const editNoteText = document.querySelector(".input--edit-note_text");
-      const editNoteTitle = document.querySelector(".input--edit-note_title");
-      editNoteText.value = text;
-      editNoteTitle.value = title;
-
-      currentEditingTitle = title;
-    });
-
     noteCard.addEventListener("click", () => {
       document.querySelectorAll(".notes__card").forEach((card) => {
         card.classList.remove("selected");
@@ -100,6 +66,8 @@ function renderNotes() {
 
       noteViewTitle.textContent = title;
       noteBody.textContent = text;
+
+      noteViewTitle.dataset.key = title;
     });
 
     deleteButton.addEventListener("click", () => {
@@ -109,7 +77,6 @@ function renderNotes() {
     noteCard.appendChild(noteCaption);
     noteCard.appendChild(noteText);
     noteCard.appendChild(deleteButton);
-    noteCard.appendChild(editButton);
     notesWrapper.appendChild(noteCard);
 
     const searchInput = document.getElementById("search-note");
@@ -136,6 +103,7 @@ function renderNotes() {
             searchInput.value = note;
             resultsList.style.display = "none";
             noteViewTitle.textContent = note;
+            noteViewTitle.dataset.key = note;
             const noteContent = localStorage.getItem(note);
             noteBody.textContent = noteContent;
           });
@@ -151,6 +119,38 @@ function renderNotes() {
       if (!e.target.closest(".search")) {
         resultsList.style.display = "none";
       }
+    });
+
+    noteBody.addEventListener("blur", () => {
+      const newText = noteBody.textContent.trim();
+      const currentKey = noteViewTitle.dataset.key;
+
+      if (currentKey) {
+        localStorage.setItem(currentKey, newText);
+        renderNotes();
+      }
+    });
+
+    noteViewTitle.addEventListener("blur", () => {
+      const newTitle = noteViewTitle.textContent.trim();
+      const oldKey = noteViewTitle.dataset.key;
+      const currentText = noteBody.textContent.trim();
+
+      if (!newTitle || !oldKey) return;
+
+      if (newTitle !== oldKey) {
+        if (localStorage.getItem(newTitle)) {
+          alert("Note with such title is exist");
+          noteViewTitle.textContent = oldKey;
+          return;
+        }
+
+        localStorage.removeItem(oldKey);
+      }
+
+      localStorage.setItem(newTitle, currentText);
+      noteViewTitle.dataset.key = newTitle;
+      renderNotes();
     });
   });
 }
