@@ -309,7 +309,7 @@ main{
 }
 
 .selected{
-    background-color: var(--light-yellow);
+    background-color: var(--light-yellow) !important;
 }
 
 .note__text {
@@ -340,12 +340,15 @@ main{
     }
     .notes-layout{
         margin-left: -15vw;
+        width: 100vw;
     }
 }
 
 
 @media screen and (max-width:768px) {
-
+    .shifted{
+        all: none;
+    }
 
     .notes-wrapper {
         justify-content: center;

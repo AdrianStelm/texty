@@ -8,7 +8,8 @@ const closeButtons = document.querySelectorAll(".close");
 const noteViewTitle = document.querySelector(".note__title");
 const noteBody = document.querySelector(".note__text");
 
-form.addEventListener("submit", () => {
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
   const noteData = new FormData(form);
 
   const title = noteData.get("note_caption");
