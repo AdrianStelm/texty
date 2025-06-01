@@ -4,12 +4,8 @@
 }
 
 .modal-content--create-note input[theme="dark"],
-.modal-content--create-note textarea[theme="dark"],
-.modal-content--edit-note input[theme="dark"],
-.modal-content--edit-note textarea[theme="dark"] {
-    background-color: #000000e7;
+.modal-content--create-note textarea[theme="dark"]{
     color: white;
-
 }
 
 .notes__card[theme='dark'] {
