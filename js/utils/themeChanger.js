@@ -7,6 +7,11 @@ const closeButton = document.querySelectorAll(".close");
 const noteCards = document.querySelectorAll(".notes__card");
 const themeSelector = document.querySelector("#select-theme");
 const createNoteButton = document.querySelector(".button__create--note");
+const asideMenu = document.querySelector(".aside-menu");
+const closeAsideMenuButton = document.querySelector(".aside-menu_button_close");
+const searchResults = document.querySelector(".search-results");
+const searchNotesInput = document.querySelector("#search-note");
+const buttonClearNotes = document.querySelector(".button__clear--notes");
 
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
@@ -18,6 +23,11 @@ const elementsToChange = [
   ...closeButton,
   themeSelector,
   createNoteButton,
+  asideMenu,
+  closeAsideMenuButton,
+  searchResults,
+  searchNotesInput,
+  buttonClearNotes,
 ];
 
 function switchToDarkTheme() {
@@ -50,25 +60,6 @@ function switchToWhiteTheme() {
   });
 }
 
-function switchToRedTheme() {
-  sessionStorage.setItem("theme", "red");
-  for (let elem of elementsToChange) {
-    elem.setAttribute("theme", "red");
-  }
-
-  document.querySelectorAll(".notes__card").forEach((note) => {
-    note.setAttribute("theme", "red");
-  });
-
-  document.querySelectorAll(".close").forEach((note) => {
-    note.setAttribute("theme", "red");
-  });
-}
-
-if (!sessionStorage.getItem("theme") && prefersDark) {
-  sessionStorage.setItem("theme", "dark");
-}
-
 selectElement.addEventListener("change", () => {
   let selectedTheme = selectElement.value;
   if (selectedTheme == "dark") {
@@ -83,11 +74,6 @@ selectElement.addEventListener("change", () => {
 
 if (sessionStorage.getItem("theme") == "dark") {
   switchToDarkTheme();
-  console.log("dark");
 } else if (sessionStorage.getItem("theme") == "white") {
   switchToWhiteTheme();
-  console.log("white");
-} else if (sessionStorage.getItem("theme") == "red") {
-  switchToRedTheme();
-  console.log("red");
 }
