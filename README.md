@@ -25,7 +25,6 @@ Notes are stored in your browser via localStorage, ensuring complete privacy and
 
 * Native HTML5 / CSS3 
 
-* localStorage API
 
 ## Installation
 
@@ -36,7 +35,4 @@ git clone https://github.com/AdrianStelm/texty.git
 cd texty
 ```
 
-### Open in browser:
-```bash
-open index.html
-```
+
